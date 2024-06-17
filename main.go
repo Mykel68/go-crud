@@ -1,28 +1,16 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"log"
-    "github.com/joho/godotenv"
+	"go-crud/config"
+	"github.com/gin-gonic/gin"	
 )
 
 func init() {
-		  err := godotenv.Load()
-  if err != nil {
-    log.Fatal("Error loading .env file")
-  }
-
+config.LoadEnvVariables()
 
 }
 
 func main() {
-
-	  err := godotenv.Load()
-  if err != nil {
-    log.Fatal("Error loading .env file")
-  }
-
-
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
